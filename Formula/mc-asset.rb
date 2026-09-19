@@ -11,7 +11,7 @@ class McAsset < Formula
 
   def install
     libexec.install "bin", "dist", "LICENSE", "THIRD_PARTY_NOTICES.md"
-    bin.write_exec_script libexec/"bin/mc-asset.js"
+    bin.install_symlink libexec/"bin/mc-asset.js" => "mc-asset"
   end
 
   test do
