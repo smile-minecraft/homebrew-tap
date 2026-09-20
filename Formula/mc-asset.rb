@@ -1,22 +1,31 @@
-# v0.1.0 published asset: sha256 below matches the GitHub Release
-# tarball `mc-asset-0.1.0.tar.gz` and its `.sha256` companion.
+# v0.2.0 published asset: sha256 below matches the GitHub Release
+# tarball `mc-asset-0.2.0.tar.gz` (digest verified against the published
+# asset and its `.sha256` companion). Re-verify with
+# `shasum -a 256 mc-asset-0.2.0.tar.gz` before any tap update.
 class McAsset < Formula
   desc "Pixel-native Minecraft asset toolchain"
   homepage "https://github.com/smile-minecraft/mc-asset"
-  url "https://github.com/smile-minecraft/mc-asset/releases/download/v0.1.0/mc-asset-0.1.0.tar.gz"
-  sha256 "bdc941bce9eff148732398bb767d4b73f05c20a6ff4d6718b82a4317dba98881"
+  url "https://github.com/smile-minecraft/mc-asset/releases/download/v0.2.0/mc-asset-0.2.0.tar.gz"
+  sha256 "3cf7dd7690833cbce866ef717bd2ac2b6b056b7bc2215ba6acd7f2911ad15d81"
   license "MIT"
 
   depends_on "node"
 
   def install
+    # Keep the "bin" and "dist" directories intact: bin/mc-asset.js hands off
+    # to ../dist/mc-asset.js, so installing the launcher file on its own
+    # would break the relative import.
     libexec.install "bin", "dist", "LICENSE", "THIRD_PARTY_NOTICES.md"
+    # write_exec_script derives the wrapper name from the source basename, so
+    # it would install bin/mc-asset.js instead of the documented bin/mc-asset
+    # command. Symlink with a rename instead: the launcher keeps its Node
+    # shebang and stays executable, and ../dist keeps resolving from libexec.
     bin.install_symlink libexec/"bin/mc-asset.js" => "mc-asset"
   end
 
   test do
     (testpath/"tiny.grid").write <<~EOS
-      ; Homebrew formula smoke fixture.
+      ; Hand-authored ASCII grid: 4x4 mark.
       [palette]
       . = transparent
       S = #ADB7C0FF
