@@ -8,4 +8,4 @@ brew install smile-minecraft/tap/mc-asset
 brew test mc-asset
 ```
 
-The formula installs the public `mc-asset` v0.1.0 release and runs the render → analyze → validate smoke path.
+The formula installs the public `mc-asset` v0.2.0 release and runs the render → analyze → validate smoke path.
