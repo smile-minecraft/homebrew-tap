@@ -8,6 +8,7 @@ cask "machelper" do
   homepage "https://github.com/smile-minecraft/MacHelper"
 
   depends_on macos: :sonoma
+  depends_on arch: :arm64
 
   app "MacHelper.app"
   binary "#{appdir}/MacHelper.app/Contents/MacOS/machelper-cli", target: "machelper"
