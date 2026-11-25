@@ -1,13 +1,12 @@
 cask "machelper" do
-  version "0.6.0"
-  sha256 "a30619aa5fe127618c17a47d7723d5050edd4ad1f40fdffcec1e0ac115f1fc2e"
+  version "0.7.0"
+  sha256 "639e341579cce2d789954ad9a45919a95bb7f2dd7a1e165af155caef2db49cc3"
 
   url "https://github.com/smile-minecraft/MacHelper/releases/download/v#{version}/MacHelper-#{version}.dmg"
   name "MacHelper"
   desc "Menu bar system monitor, fan control and cleanup utility"
   homepage "https://github.com/smile-minecraft/MacHelper"
 
-  depends_on arch: :arm64
   depends_on macos: :sonoma
 
   app "MacHelper.app"
