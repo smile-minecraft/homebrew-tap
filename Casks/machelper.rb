@@ -1,6 +1,6 @@
 cask "machelper" do
-  version "0.8.0"
-  sha256 "363f440abcb3e503d11c0273351c22b0cbef997f1d8a50dfbeb08a3aca8d0ed8"
+  version "0.8.1"
+  sha256 "4ec1fa42abe8208fdcb7ca6ff6a27b297bcd01d487403c1fc0a312f646628544"
 
   url "https://github.com/smile-minecraft/MacHelper/releases/download/v#{version}/MacHelper-#{version}.dmg"
   name "MacHelper"
